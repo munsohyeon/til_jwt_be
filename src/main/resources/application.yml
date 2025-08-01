@@ -1,0 +1,37 @@
+constants:
+  file:
+    directory: D:\msfile\backand\upload
+  jwt:
+    issuer: green502@green.com #??? ??
+    bearer-format: JWT
+
+    claim-key: signedUser
+    secret-key: DaeguArtAcademyClass502MsaClassFightingkkkkk
+
+    access-token-cookie-name: access-token
+    access-token-cookie-path: / #"/": ?? ???? ???? ???
+    access-token-cookie-validity-seconds: 900 #15? 60*15
+    access-token-cookie-validity-milliseconds: 900_000 #15? (ms) 60 * 15 * 1000
+
+    refresh-token-cookie-name: refresh-token
+    refresh-token-cookie-path: /api/v1/account/reissue #?? ??? ?? ??? ???
+    refresh-token-cookie-validity-seconds: 900 #15? 60*15
+    refresh-token-cookie-validity-milliseconds: 900_000 #15? (ms) 60 * 15 * 1000
+
+
+spring:
+  application:
+    name: gallery
+  datasource:
+    url: jdbc:log4jdbc:mariadb://localhost/gallery
+    username: root
+    password: green502
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mappers/**/*.xml
+
+server:
+    port: 8080
