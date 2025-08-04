@@ -5,7 +5,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 // 쿠키에 데이터 담고 빼고 할 때 사용하는 객체
 //쿠키에 데이터 담고 빼고 할 때 사용하는 객체
@@ -43,7 +45,7 @@ public class CookieUtils {
                 }
             }
         }
-        //TODO: 예외 처리
+        // throw  new ResponseStatusException(HttpStatus.BAD_REQUEST, "인증 문제");
         return null;
     }
 
