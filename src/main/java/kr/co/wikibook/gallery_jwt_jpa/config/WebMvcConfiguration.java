@@ -1,4 +1,4 @@
-package kr.co.wikibook.gallery_jwt_jpa_jwt_jpa.common;
+package kr.co.wikibook.gallery_jwt_jpa.config;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     public WebMvcConfiguration(@Value("${constants.file.directory}") String uploadPath) {
         this.uploadPath = uploadPath;
-        log.info("uploadPath: {}", uploadPath);
+        log.info("Upload Path: {}", uploadPath);
     }
 
     @Override
@@ -26,10 +26,4 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
                 .addResourceLocations("file:" + uploadPath);
     }
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("*"); // 쿠키, 세션 허용
-    }
 }

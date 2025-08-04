@@ -24,7 +24,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //토큰 처리
         Authentication authentication = jwtTokenManager.getAuthentication(request);
-        if (authentication != null) {
+        if (authentication != null) { // 로그인 처리
             SecurityContextHolder.getContext().setAuthentication(authentication); //인증 처리
         }
         filterChain.doFilter(request, response); //다음 필터에게 req, res 넘기기
